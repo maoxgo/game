@@ -14,4 +14,3 @@ var GameElement = (function (_super) {
     return GameElement;
 }(BaseElement));
 egret.registerClass(GameElement,'GameElement');
-//# sourceMappingURL=GameElement.js.map

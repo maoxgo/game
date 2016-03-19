@@ -91,4 +91,3 @@ var GameOverPanel = (function (_super) {
     return GameOverPanel;
 }(egret.Sprite));
 egret.registerClass(GameOverPanel,'GameOverPanel');
-//# sourceMappingURL=GameOverPanel.js.map

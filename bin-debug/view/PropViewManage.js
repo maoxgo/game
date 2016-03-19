@@ -57,4 +57,3 @@ var PropViewManage = (function () {
     return PropViewManage;
 }());
 egret.registerClass(PropViewManage,'PropViewManage');
-//# sourceMappingURL=PropViewManage.js.map

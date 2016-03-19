@@ -5,7 +5,12 @@
  */
 class LinkLogic {
 	
-    public static lines:number[][];
+    public static lines:number[];
+    public static pushLines(val:number){
+        if(LinkLogic.lines.indexOf(val)==-1){
+            LinkLogic.lines.push(val);
+        }
+    }
     public static isHaveLine():boolean{
         LinkLogic.lines =[];
         var currentType:string = '';
@@ -16,11 +21,12 @@ class LinkLogic {
                 if(GameData.mapData[i][t]!=-1){
                     if(currentType!=GameData.elements[GameData.mapData[i][t]].type){
                         if(typeNum>=3){
-                            var arr:number[]=[];
+                            //var arr:number[]=[];
                             for(var q=0;q<typeNum;q++){
-                                arr.push(GameData.mapData[i][t-q-1]);
+                                //arr.push(GameData.mapData[i][t-q-1]);
+                                LinkLogic.pushLines(GameData.mapData[i][t-q-1]);
                             }
-                            LinkLogic.lines.push(arr);
+                            //LinkLogic.lines.push(arr);
                         }
                         currentType= GameData.elements[GameData.mapData[i][t]].type;
                         typeNum=1;
@@ -29,22 +35,24 @@ class LinkLogic {
                     }
                 }else{
                     if(typeNum>=3){
-                        var arr:number[]=[];
+                        //var arr:number[]=[];
                         for(var q=0;q<typeNum;q++){
-                            arr.push(GameData.mapData[i][t-q-1]);
+                            //arr.push(GameData.mapData[i][t-q-1]);
+                            LinkLogic.pushLines(GameData.mapData[i][t - q - 1]);
                         }
-                        LinkLogic.lines.push(arr);
+                        //LinkLogic.lines.push(arr);
                     }
                     currentType='';
                     typeNum=0;
                 }
             }
             if(typeNum >= 3) {
-                var arr: number[] = [];
+                //var arr: number[] = [];
                 for(var q = 0;q < typeNum;q++) {
-                    arr.push(GameData.mapData[i][t - q - 1]);
+                    //arr.push(GameData.mapData[i][t - q - 1]);
+                    LinkLogic.pushLines(GameData.mapData[i][t - q - 1]);
                 }
-                LinkLogic.lines.push(arr);
+                //LinkLogic.lines.push(arr);
             }
             currentType = '';
             typeNum = 0;
@@ -55,10 +63,11 @@ class LinkLogic {
                 if(GameData.mapData[t][i] !=-1){
                     if(currentType != GameData.elements[GameData.mapData[t][i]].type){
                         if(typeNum>=3){
-                            var arr : number[]=[];
+                            //var arr : number[]=[];
                             for(q=0;q<typeNum;q++){
-                                arr.push(GameData.mapData[t-q-1][i]);
-                                LinkLogic.lines.push(arr);
+                                //arr.push(GameData.mapData[t-q-1][i]);
+                                //LinkLogic.lines.push(arr);
+                                LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                             }
                         }
                         currentType = GameData.elements[GameData.mapData[t][i]].type;
@@ -68,10 +77,11 @@ class LinkLogic {
                     }
                 }else{
                     if(typeNum >= 3) {
-                        var arr: number[] = [];
+                        //var arr: number[] = [];
                         for(q = 0;q < typeNum;q++) {
-                            arr.push(GameData.mapData[t - q - 1][i]);
-                            LinkLogic.lines.push(arr);
+                            //arr.push(GameData.mapData[t - q - 1][i]);
+                            //LinkLogic.lines.push(arr);
+                            LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                         }
                     }
                     currentType = '';
@@ -79,10 +89,11 @@ class LinkLogic {
                 }
             }
             if(typeNum >= 3) {
-                var arr: number[] = [];
+                //var arr: number[] = [];
                 for(q = 0;q < typeNum;q++) {
-                    arr.push(GameData.mapData[t - q - 1][i]);
-                    LinkLogic.lines.push(arr);
+                    //arr.push(GameData.mapData[t - q - 1][i]);
+                    //LinkLogic.lines.push(arr);
+                    LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                 }
             }
             currentType = '';
@@ -196,8 +207,7 @@ class LinkLogic {
     }
     
     public static isHaveLineByIndex(p1:number,p2:number):boolean{
-        var p1n:number=p1;
-        var p2n:number=p2;
+        
         
         var p1id:number= GameData.mapData[Math.floor(p1/GameData.MaxColumn)][p1%GameData.MaxRow];
         var p2id: number = GameData.mapData[Math.floor(p2 / GameData.MaxColumn)][p2 % GameData.MaxRow];

@@ -51,4 +51,3 @@ var LevelElementView = (function (_super) {
     return LevelElementView;
 }(egret.Sprite));
 egret.registerClass(LevelElementView,'LevelElementView');
-//# sourceMappingURL=LevelElementView.js.map

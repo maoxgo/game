@@ -92,22 +92,20 @@ class GameLogic {
 	    console.log('需要消除'+LinkLogic.lines);
 	    var len:number=LinkLogic.lines.length;
 	    var rel:boolean;
+        var etype: string = '';
 	    for(var i:number=0;i<len;i++){
-	        var etype:string='';
-	        var l:number=LinkLogic.lines[i].length;
-	        for(var t:number=0;t<l;t++){
-	            etype=GameData.elements[LinkLogic.lines[i][t]].type;
-	            rel=this.levm.haveReqType(etype);
-                if(rel) {//有相同关卡类型，运动到指定位置
-	                var p:egret.Point=this.levm.getPointByType(etype);
-	                GameData.levelreq.changeReqNum(etype,1);
-	                this.levm.update();
-	                this.evm.playReqRemoveAn(LinkLogic.lines[i][t],p.x,p.y);
-	            }else{
-	                this.evm.playRemoveAni(LinkLogic.lines[i][t]);
-	            }
-    	            
-	        }
+	        
+            etype = GameData.elements[LinkLogic.lines[i]].type;
+            rel = this.levm.haveReqType(etype);
+            if(rel) {//有相同关卡类型，运动到指定位置
+                var p: egret.Point = this.levm.getPointByType(etype);
+                GameData.levelreq.changeReqNum(etype,1);
+                this.levm.update();
+                this.evm.playReqRemoveAn(LinkLogic.lines[i],p.x,p.y);
+            } else {
+                this.evm.playRemoveAni(LinkLogic.lines[i]);
+            }
+	        
 	    }
 	}
 	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/

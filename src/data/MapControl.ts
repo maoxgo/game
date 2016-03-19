@@ -31,34 +31,18 @@ class MapControl {
 	    var ids:number[]=[];
 	    var len:number=LinkLogic.lines.length;
 	    for(var i=0;i<len;i++){
-	        var l:number=LinkLogic.lines[i].length;
-	        for(var t=0;t<l;t++){
-	            var rel:boolean=false;
-	            var ll:number=ids.length;
-	            for(var r=0;r<ll;r++){
-	                if(ids[r]==LinkLogic.lines[i][t]){
-	                    rel=true;
-	                }
-	            }
-	            if(!rel){
-	                this.changeTypeByID(LinkLogic.lines[i][t]);
-	                ids.push(LinkLogic.lines[i][t]);
-	            }
-	        }
+	        //var l:number=LinkLogic.lines[i].length;            
+            ids.push(LinkLogic.lines[i]);            	   
 	    }
 	    
 	    len = ids.length;
 	    var colarr:number[]=[];
 	    for(i=0;i<len;i++){
-	        rel =false;
-	        for(t=0;t<colarr.length;t++){
-	            if(colarr[t]==GameData.elements[ids[i]].location%GameData.MaxColumn){
-	                return true;
-	            }
-	        }
-	        if(!rel){
-	            colarr.push(GameData.elements[ids[i]].location%GameData.MaxColumn);
-	        }
+    	      
+            var tempCol: number = GameData.elements[ids[i]].location % GameData.MaxColumn;
+            if(colarr.indexOf(tempCol)==-1){
+                colarr.push(tempCol);
+            }
 	    }
 	    
 	    var colelids:number[];
@@ -66,26 +50,36 @@ class MapControl {
 	    for(i=0;i<len;i++){
 	        var newcolids:number[]=[];
 	        var removeids:number[]=[];
-	        for(t=GameData.MaxRow-1;t>=0;t--){
-	            rel=false;
-	            for(var q=0;q<ids.length;q++){
-	                removeids.push(ids[q]);
-	                rel =true;
-	            }
-	            if(!rel){
-	                if(GameData.mapData[t][colarr[i]]!=-1){
-	                    newcolids.push(GameData[t][colarr[i]]);
-	                }
+	        for(var t=GameData.MaxRow-1;t>=0;t--){
+	            //console.log(ids);
+	            if(ids.indexOf(GameData.mapData[t][colarr[i]])>=0){
+                    removeids.push(GameData.mapData[t][colarr[i]]);
+                    
+	            }else{
+                    if(GameData.mapData[t][colarr[i]] != -1) {
+                        newcolids.push(GameData.mapData[t][colarr[i]]);
+                    }
 	            }
 	        }
 	        newcolids=newcolids.concat(removeids);
-	        for(t=GameData.MaxRow-1;t>-0;t--){
+	        //console.log(newcolids);
+	        for(t=GameData.MaxRow-1;t>=0;t--){
 	            if(GameData.mapData[t][colarr[i]]!=-1){
-	                GameData.mapData[t][colarr[i]]=newcolids[0];
-	                GameData.elements[newcolids[0]].location=t*GameData.MaxRow+colarr[i];
-	                newcolids.shift();
+    	              var newcol:number = newcolids.shift();
+	                GameData.mapData[t][colarr[i]]=newcol;
+                    console.log(GameData.elements[newcol].location);
+                    GameData.elements[newcol].location=t*GameData.MaxRow+colarr[i];
+	                //newcolids.shift();
+	                //console.log(newcolids);
+                    console.log(GameData.elements[newcol].location);
 	            }
 	        }
+	        
+	        for(t=0;t<removeids.length;t++){
+	            this.changeTypeByID(removeids[t]);
+	        }
+    	       
+	        
 	    }
 	}
 	/**配置所有地图元素类型*/

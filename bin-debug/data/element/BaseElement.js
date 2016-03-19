@@ -11,4 +11,3 @@ var BaseElement = (function () {
     return BaseElement;
 }());
 egret.registerClass(BaseElement,'BaseElement');
-//# sourceMappingURL=BaseElement.js.map

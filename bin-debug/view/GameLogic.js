@@ -72,21 +72,18 @@ var GameLogic = (function () {
         console.log('需要消除' + LinkLogic.lines);
         var len = LinkLogic.lines.length;
         var rel;
+        var etype = '';
         for (var i = 0; i < len; i++) {
-            var etype = '';
-            var l = LinkLogic.lines[i].length;
-            for (var t = 0; t < l; t++) {
-                etype = GameData.elements[LinkLogic.lines[i][t]].type;
-                rel = this.levm.haveReqType(etype);
-                if (rel) {
-                    var p = this.levm.getPointByType(etype);
-                    GameData.levelreq.changeReqNum(etype, 1);
-                    this.levm.update();
-                    this.evm.playReqRemoveAn(LinkLogic.lines[i][t], p.x, p.y);
-                }
-                else {
-                    this.evm.playRemoveAni(LinkLogic.lines[i][t]);
-                }
+            etype = GameData.elements[LinkLogic.lines[i]].type;
+            rel = this.levm.haveReqType(etype);
+            if (rel) {
+                var p = this.levm.getPointByType(etype);
+                GameData.levelreq.changeReqNum(etype, 1);
+                this.levm.update();
+                this.evm.playReqRemoveAn(LinkLogic.lines[i], p.x, p.y);
+            }
+            else {
+                this.evm.playRemoveAni(LinkLogic.lines[i]);
             }
         }
     };
@@ -158,4 +155,3 @@ var GameLogic = (function () {
     return GameLogic;
 }());
 egret.registerClass(GameLogic,'GameLogic');
-//# sourceMappingURL=GameLogic.js.map

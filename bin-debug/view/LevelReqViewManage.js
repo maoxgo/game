@@ -44,7 +44,9 @@ var LevelReqViewManage = (function () {
             this.stepNumText.text = GameData.stepNum.toString();
         }
     };
-    //判断是否有指定类型
+    /**
+     * 判断是否有指定类型
+     */
     p.haveReqType = function (type) {
         var l = this.elements.length;
         for (var i = 0; i < l; i++) {
@@ -81,4 +83,3 @@ var LevelReqViewManage = (function () {
     return LevelReqViewManage;
 }());
 egret.registerClass(LevelReqViewManage,'LevelReqViewManage');
-//# sourceMappingURL=LevelReqViewManage.js.map

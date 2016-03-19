@@ -48,4 +48,3 @@ var GameData = (function () {
     return GameData;
 }());
 egret.registerClass(GameData,'GameData');
-//# sourceMappingURL=GameData.js.map
