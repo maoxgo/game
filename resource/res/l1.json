@@ -4,10 +4,10 @@
     "element":[0,1,2,3,4,5],
     "levelreq":
     [
-    	{"type":"3","num":6},
-    	{"type":"4","num":3},
-    	{"type":"0","num":2},
-    	{"type":"2","num":2}
+    	{"type":"3","num":16},
+    	{"type":"4","num":13},
+    	{"type":"0","num":12},
+    	{"type":"2","num":12}
     ],
     "levelbgimg":"background"
 }

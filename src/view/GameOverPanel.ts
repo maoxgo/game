@@ -31,8 +31,8 @@ class GameOverPanel extends egret.Sprite{
 	    gameover.texture=RES.getRes('gameovertitle_png');
 	    gameover.width=this._view.width/2;
 	    gameover.height=60;
-	    gameover.x=this._view.x-(this._view.width-gameover.width)/2;
-	    gameover.y=this._view.y-10;
+	    gameover.x=this._view.x+(this._view.width-gameover.width)/2;
+	    gameover.y=this._view.y+10;
 	    gameover.scaleX=0;
 	    gameover.scaleY=0;
 	    this.addChild(gameover);
