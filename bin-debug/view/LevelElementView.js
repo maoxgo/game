@@ -16,7 +16,7 @@ var LevelElementView = (function (_super) {
             return Number(this.bittext.text);
         }
         ,function (val) {
-            if (val < 0) {
+            if (val <= 0) {
                 //已经没了，显示对号
                 if (!this.checkmarkbit) {
                     this.checkmarkbit = new egret.Bitmap();
@@ -25,6 +25,23 @@ var LevelElementView = (function (_super) {
                     this.checkmarkbit.y = this.bitmap.height + this.bitmap.y - this.checkmarkbit.height / 2;
                     this.addChild(this.checkmarkbit);
                     this.removeChild(this.bittext);
+                }
+                if (this.bittext.parent) {
+                    this.removeChild(this.bittext);
+                }
+                if (!this.checkmarkbit.parent) {
+                    this.addChild(this.checkmarkbit);
+                }
+            }
+            else {
+                if (this.bittext.parent) {
+                    this.bittext.text = val.toString();
+                }
+                if (this.checkmarkbit && this.checkmarkbit.parent) {
+                    this.removeChild(this.checkmarkbit);
+                }
+                if (!this.bittext.parent) {
+                    this.addChild(this.bittext);
                 }
             }
         }
