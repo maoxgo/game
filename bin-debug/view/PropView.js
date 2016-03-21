@@ -131,4 +131,3 @@ var PropView = (function (_super) {
     return PropView;
 }(egret.Sprite));
 egret.registerClass(PropView,'PropView');
-//# sourceMappingURL=PropView.js.map

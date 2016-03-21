@@ -41,4 +41,3 @@ var LevelRequire = (function () {
     return LevelRequire;
 }());
 egret.registerClass(LevelRequire,'LevelRequire');
-//# sourceMappingURL=LevelRequire.js.map

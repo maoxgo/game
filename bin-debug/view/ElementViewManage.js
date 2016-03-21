@@ -214,4 +214,3 @@ var ElementViewManage = (function (_super) {
     return ElementViewManage;
 }(egret.EventDispatcher));
 egret.registerClass(ElementViewManage,'ElementViewManage');
-//# sourceMappingURL=ElementViewManage.js.map

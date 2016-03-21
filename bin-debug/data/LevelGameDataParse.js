@@ -30,4 +30,3 @@ var LevelGameDataParse = (function () {
     return LevelGameDataParse;
 }());
 egret.registerClass(LevelGameDataParse,'LevelGameDataParse');
-//# sourceMappingURL=LevelGameDataParse.js.map

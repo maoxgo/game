@@ -202,4 +202,3 @@ var ElementView = (function (_super) {
     return ElementView;
 }(egret.Sprite));
 egret.registerClass(ElementView,'ElementView');
-//# sourceMappingURL=ElementView.js.map

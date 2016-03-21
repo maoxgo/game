@@ -7,6 +7,11 @@ var LinkLogic = (function () {
     function LinkLogic() {
     }
     var d = __define,c=LinkLogic,p=c.prototype;
+    LinkLogic.pushLines = function (val) {
+        if (LinkLogic.lines.indexOf(val) == -1) {
+            LinkLogic.lines.push(val);
+        }
+    };
     LinkLogic.isHaveLine = function () {
         LinkLogic.lines = [];
         var currentType = '';
@@ -16,11 +21,11 @@ var LinkLogic = (function () {
                 if (GameData.mapData[i][t] != -1) {
                     if (currentType != GameData.elements[GameData.mapData[i][t]].type) {
                         if (typeNum >= 3) {
-                            var arr = [];
+                            //var arr:number[]=[];
                             for (var q = 0; q < typeNum; q++) {
-                                arr.push(GameData.mapData[i][t - q - 1]);
+                                //arr.push(GameData.mapData[i][t-q-1]);
+                                LinkLogic.pushLines(GameData.mapData[i][t - q - 1]);
                             }
-                            LinkLogic.lines.push(arr);
                         }
                         currentType = GameData.elements[GameData.mapData[i][t]].type;
                         typeNum = 1;
@@ -31,22 +36,22 @@ var LinkLogic = (function () {
                 }
                 else {
                     if (typeNum >= 3) {
-                        var arr = [];
+                        //var arr:number[]=[];
                         for (var q = 0; q < typeNum; q++) {
-                            arr.push(GameData.mapData[i][t - q - 1]);
+                            //arr.push(GameData.mapData[i][t-q-1]);
+                            LinkLogic.pushLines(GameData.mapData[i][t - q - 1]);
                         }
-                        LinkLogic.lines.push(arr);
                     }
                     currentType = '';
                     typeNum = 0;
                 }
             }
             if (typeNum >= 3) {
-                var arr = [];
+                //var arr: number[] = [];
                 for (var q = 0; q < typeNum; q++) {
-                    arr.push(GameData.mapData[i][t - q - 1]);
+                    //arr.push(GameData.mapData[i][t - q - 1]);
+                    LinkLogic.pushLines(GameData.mapData[i][t - q - 1]);
                 }
-                LinkLogic.lines.push(arr);
             }
             currentType = '';
             typeNum = 0;
@@ -56,10 +61,11 @@ var LinkLogic = (function () {
                 if (GameData.mapData[t][i] != -1) {
                     if (currentType != GameData.elements[GameData.mapData[t][i]].type) {
                         if (typeNum >= 3) {
-                            var arr = [];
+                            //var arr : number[]=[];
                             for (q = 0; q < typeNum; q++) {
-                                arr.push(GameData.mapData[t - q - 1][i]);
-                                LinkLogic.lines.push(arr);
+                                //arr.push(GameData.mapData[t-q-1][i]);
+                                //LinkLogic.lines.push(arr);
+                                LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                             }
                         }
                         currentType = GameData.elements[GameData.mapData[t][i]].type;
@@ -71,10 +77,11 @@ var LinkLogic = (function () {
                 }
                 else {
                     if (typeNum >= 3) {
-                        var arr = [];
+                        //var arr: number[] = [];
                         for (q = 0; q < typeNum; q++) {
-                            arr.push(GameData.mapData[t - q - 1][i]);
-                            LinkLogic.lines.push(arr);
+                            //arr.push(GameData.mapData[t - q - 1][i]);
+                            //LinkLogic.lines.push(arr);
+                            LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                         }
                     }
                     currentType = '';
@@ -82,10 +89,11 @@ var LinkLogic = (function () {
                 }
             }
             if (typeNum >= 3) {
-                var arr = [];
+                //var arr: number[] = [];
                 for (q = 0; q < typeNum; q++) {
-                    arr.push(GameData.mapData[t - q - 1][i]);
-                    LinkLogic.lines.push(arr);
+                    //arr.push(GameData.mapData[t - q - 1][i]);
+                    //LinkLogic.lines.push(arr);
+                    LinkLogic.pushLines(GameData.mapData[t - q - 1][i]);
                 }
             }
             currentType = '';
@@ -192,8 +200,6 @@ var LinkLogic = (function () {
         return false;
     };
     LinkLogic.isHaveLineByIndex = function (p1, p2) {
-        var p1n = p1;
-        var p2n = p2;
         var p1id = GameData.mapData[Math.floor(p1 / GameData.MaxColumn)][p1 % GameData.MaxRow];
         var p2id = GameData.mapData[Math.floor(p2 / GameData.MaxColumn)][p2 % GameData.MaxRow];
         GameData.mapData[Math.floor(p1 / GameData.MaxColumn)][p1 % GameData.MaxRow] = p2id;
@@ -249,4 +255,3 @@ var LinkLogic = (function () {
     return LinkLogic;
 }());
 egret.registerClass(LinkLogic,'LinkLogic');
-//# sourceMappingURL=LinkLogic.js.map

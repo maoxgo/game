@@ -27,4 +27,3 @@ var MapDataParse = (function () {
     return MapDataParse;
 }());
 egret.registerClass(MapDataParse,'MapDataParse');
-//# sourceMappingURL=MapDataParse.js.map

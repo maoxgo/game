@@ -22,4 +22,3 @@ var ElementViewManageEvent = (function (_super) {
     return ElementViewManageEvent;
 }(egret.Event));
 egret.registerClass(ElementViewManageEvent,'ElementViewManageEvent');
-//# sourceMappingURL=ElementViewManageEvent.js.map

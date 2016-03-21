@@ -30,8 +30,8 @@ var GameOverPanel = (function (_super) {
         gameover.texture = RES.getRes('gameovertitle_png');
         gameover.width = this._view.width / 2;
         gameover.height = 60;
-        gameover.x = this._view.x - (this._view.width - gameover.width) / 2;
-        gameover.y = this._view.y - 10;
+        gameover.x = this._view.x + (this._view.width - gameover.width) / 2;
+        gameover.y = this._view.y + 10;
         gameover.scaleX = 0;
         gameover.scaleY = 0;
         this.addChild(gameover);
@@ -91,4 +91,3 @@ var GameOverPanel = (function (_super) {
     return GameOverPanel;
 }(egret.Sprite));
 egret.registerClass(GameOverPanel,'GameOverPanel');
-//# sourceMappingURL=GameOverPanel.js.map

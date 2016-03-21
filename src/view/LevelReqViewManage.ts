@@ -50,7 +50,10 @@ class LevelReqViewManage {
 	    }
 	}
 	
-	//判断是否有指定类型
+	
+	/**
+	 * 判断是否有指定类型
+	 */ 
 	public haveReqType(type:string):boolean{
 	    var l:number=this.elements.length;
 	    for(var i:number=0;i<l;i++){

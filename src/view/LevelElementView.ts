@@ -12,7 +12,7 @@ class LevelElementView extends egret.Sprite{
 	public eltype:string='';//代表元素类型
 	
 	public set num(val:number){
-	    if(val<0){
+	    if(val<=0){
 	        //已经没了，显示对号
     	    if(!this.checkmarkbit){
     	        this.checkmarkbit = new egret.Bitmap();
@@ -22,6 +22,23 @@ class LevelElementView extends egret.Sprite{
     	        this.addChild(this.checkmarkbit);
     	        this.removeChild(this.bittext);
     	    }
+    	    if(this.bittext.parent){
+    	        this.removeChild(this.bittext);
+    	    }
+    	    if(!this.checkmarkbit.parent){
+    	        this.addChild(this.checkmarkbit);
+    	    }
+	    }else{
+    	      if(this.bittext.parent){
+                this.bittext.text = val.toString();
+    	      }
+              if(this.checkmarkbit && this.checkmarkbit.parent){
+    	          this.removeChild(this.checkmarkbit);
+    	      }
+    	      if(!this.bittext.parent){
+    	          this.addChild(this.bittext);
+    	      }
+	        
 	    }
 	}
 	public get num():number{

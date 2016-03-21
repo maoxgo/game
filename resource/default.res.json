@@ -1,6 +1,6 @@
 {
 	"groups":[{
-			"keys":"l1,background,elementbg1,elementbg2,propbg_png,levelreqtitle_png,levelreqbg_png,sursteptitle_png,e0_png,e1_png,e2_png,e3_png,e4_png,e5_png,checkmark_png,number_fnt",
+			"keys":"l1,background,elementbg1,elementbg2,propbg_png,levelreqtitle_png,levelreqbg_png,sursteptitle_png,e0_png,e1_png,e2_png,e3_png,e4_png,e5_png,checkmark_png,number_fnt,gameovertitle_png,chengzi_png,baizi_png,gongzi_png,shizi_png",
 			"name":"game"
 		}],
 	"resources":[
@@ -88,6 +88,31 @@
 			"name":"test_png",
 			"type":"image",
 			"url":"res/test.png"
+		},
+		{
+			"name":"gameovertitle_png",
+			"type":"image",
+			"url":"res/gameovertitle.png"
+		},
+		{
+			"name":"chengzi_png",
+			"type":"image",
+			"url":"res/chengzi.png"
+		},
+		{
+			"name":"baizi_png",
+			"type":"image",
+			"url":"res/baizi.png"
+		},
+		{
+			"name":"gongzi_png",
+			"type":"image",
+			"url":"res/gongzi.png"
+		},
+		{
+			"name":"shizi_png",
+			"type":"image",
+			"url":"res/shizi.png"
 		}
 	]
 }

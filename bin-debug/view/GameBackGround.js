@@ -107,4 +107,3 @@ var GameBackGround = (function (_super) {
     return GameBackGround;
 }(egret.Sprite));
 egret.registerClass(GameBackGround,'GameBackGround');
-//# sourceMappingURL=GameBackGround.js.map
